@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Luminote</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/style/index.css">
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="bg-dark text-white">
+  <div class="container py-5">
+    <h1 class="text-center mb-4">Luminote</h1>
+    <div class="d-flex justify-content-center align-items-center flex-column">
+      <div class="btn-group mb-3" role="group" aria-label="OnOff">
+        <button id="onButton" type="button" class="btn btn-success">ON</button>
+        <button id="offButton" type="button" class="btn btn-danger">OFF</button>
+      </div>
+      <label for="colorPicker" class="form-label">Color picker</label>
+      <input type="color" class="form-control form-control-color mb-3" id="colorPicker" value="#ff0000" title="Choose your color">
+      <select class="form-select mb-3" aria-label="Effects dropdown">
+        <option selected>Select Effect</option>
+        <option value="1">Blink</option>
+        <option value="2">Fade</option>
+        <option value="3">Rainbow</option>
+      </select>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('onButton').addEventListener('click', window.electronAPI.turnOn);
+        document.getElementById('offButton').addEventListener('click', window.electronAPI.turnOff);
+        document.getElementById('colorPicker').addEventListener('input', function() {
+            window.electronAPI.setColor(this.value);
+            document.getElementById('colorPreview').style.backgroundColor = this.value;
+        });
+    });
+</script>
+  
+</body>
+</html>

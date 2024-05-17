@@ -1,0 +1,40 @@
+body {
+    background-color: #343a40;
+    color: #f8f9fa;
+  }
+  
+  .container {
+    max-width: 400px;
+  }
+  
+  .btn-group .btn {
+    width: 100px;
+  }
+  
+  .form-control-color {
+    width: auto;
+  }
+  
+  .form-select {
+    color: #212529;
+  }
+  
+  #colorPicker {
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: transparent;
+    padding: 1px;
+  }
+  
+  #colorPicker::-webkit-color-swatch-wrapper {
+    padding: 1px;
+  }
+  
+  #colorPicker::-webkit-color-swatch {
+    border: none;
+    border-radius: 50%;
+  }
+  
+  
