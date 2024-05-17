@@ -1,40 +1,56 @@
 body {
-    background-color: #343a40;
-    color: #f8f9fa;
-  }
-  
-  .container {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.container {
     max-width: 400px;
-  }
-  
-  .btn-group .btn {
+}
+
+.btn-group .btn {
     width: 100px;
-  }
-  
-  .form-control-color {
+}
+
+.form-control-color {
     width: auto;
-  }
-  
-  .form-select {
-    color: #212529;
-  }
-  
-  #colorPicker {
+}
+
+.form-select {
+    color: #e0e0e0;
+    background-color: #424242;
+    border-color: #424242;
+}
+
+#colorPicker {
     border: none;
     width: 60px;
     height: 60px;
     border-radius: 50%;
     background: transparent;
     padding: 1px;
-  }
+}
   
-  #colorPicker::-webkit-color-swatch-wrapper {
+#colorPicker::-webkit-color-swatch-wrapper {
     padding: 1px;
-  }
+}
   
-  #colorPicker::-webkit-color-swatch {
+#colorPicker::-webkit-color-swatch {
     border: none;
     border-radius: 50%;
-  }
-  
-  
+}
+
+.btn-success {
+    background-color: #28a745;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+#brightnessSlider {
+    width: 100%;
+}

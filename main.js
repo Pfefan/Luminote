@@ -34,6 +34,21 @@ ipcMain.handle('turnOff', () => {
     }
 })
 
+ipcMain.handle('apply', () => {
+    if(port && port.isOpen) {
+        if (choosenEffect == '' && rgb[0] != 0 && rgb[1] != 0 && rgb[2] != 0) {
+            port.write(`setEffect none\n`);
+            port.write(`setColor ${rgb[0]},${rgb[1]},${rgb[2]}\n`);
+            choosenEffect = '';
+            rgb = [0, 0, 0];
+        } else if (choosenEffect != '' && rgb[0] == 0 && rgb[1] == 0 && rgb[2] == 0) {
+            port.write(`setEffect ${choosenEffect}\n`);
+            choosenEffect = '';
+            rgb = [0, 0, 0];
+        }
+    }
+})
+
 ipcMain.handle('setColor', (event, color) => {
     let hex = color.slice(1);
 
@@ -45,3 +60,15 @@ ipcMain.handle('setColor', (event, color) => {
     choosenEffect = '';
 })
 
+ipcMain.handle('setBrightness', (event, brightness) => {
+    if(port && port.isOpen) {
+        port.write(`setBrightness ${brightness}\n`);
+    }
+})
+
+ipcMain.handle('setEffect', (event, effect) => {
+    if (effect != "Select Effect") {
+        choosenEffect = effect;
+        rgb = [0, 0, 0];
+    }
+})
